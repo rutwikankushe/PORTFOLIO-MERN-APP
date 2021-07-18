@@ -1,0 +1,39 @@
+{
+  "name": "portfolio-mern-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "client": "npm start --prefix client",
+    "clientInstall": "npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "heroku-postbuild": "npm run clientInstall && npm run build",
+    "dev": "concurrently \" npm run server  \" \" npm run client \""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.0.2",
+    "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.0",
+    "formidable": "^1.2.2",
+    "jquery": "^3.6.0",
+    "jquery-animated-headlines": "^1.0.0",
+    "jquery-waypoints": "^2.0.5",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.2",
+    "popper.js": "^1.16.1",
+    "react-bootstrap": "^1.6.1",
+    "react-hot-toast": "^2.0.0",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.11"
+  }
+}
