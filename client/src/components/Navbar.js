@@ -45,7 +45,7 @@ const Navbar = () => {
                    
                     }
                     {user_profiles.length > 0 ? user_profiles.map(user_profile =>
-                    (user_profile.email =  <><a class="dropdown-item"  to="/">Edit Profile</a>  </> )
+                    (user_profile.email =  <><Link class="dropdown-item"  to={`/edit/${user_profile.userId}`}>Edit Profile</Link>  </> )
                     ) :   '' 
                    
                     }

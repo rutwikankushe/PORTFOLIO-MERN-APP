@@ -14,6 +14,7 @@ import CreateProfile from './components/CreateProfile';
 import NotFound from './components/NotFound';
 import Store from './store';
 import Loader from './components/Loader';
+import Edit from './components/EditProfile';
 function App() {
 	return (
 		<Provider store={Store}>
@@ -28,6 +29,7 @@ function App() {
 					<RouteLinks  path='/login' exact component={Login} />
 					<RouteLinks  path='/register' exact component={Register} />
 					<PrivateRoute path='/dashboard' exact component={Dashboard} />
+					<PrivateRoute path='/edit/:id' exact component={Edit} />
 
 					<Route  component={NotFound} />
 					
