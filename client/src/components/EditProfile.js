@@ -172,7 +172,7 @@ export const Edit = () => {
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
-                              <img src="https://i.ibb.co/WGd34Vs/depositphotos-134255626-stock-illustration-avatar-male-profile-gray-person.jpg" alt="profile photo" />
+                            <img src={`/images/${User_profile.image}`} alt={User_profile.image} />
                                 <div className="file btn btn-lg btn-primary">
                                     
                                     <input type="file" name="image" id="image" />

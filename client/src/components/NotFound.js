@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
-
+import { Link } from 'react-router-dom';
 export const NotFound = () => {
     return (
         <div >
@@ -15,7 +15,7 @@ export const NotFound = () => {
                     </div>
                     <h2>We are sorry, Page not found!</h2>
                     <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
-                    <a href="#">Back To Homepage</a>
+                    <Link to="/">Back To Homepage</Link>
                 </div>
             </div>
         </div>

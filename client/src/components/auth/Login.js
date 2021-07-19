@@ -91,7 +91,7 @@ const Login = () => {
                     
                    
                     <div className="text-center w-100">
-                        <p className="text-muted font-weight-bold">Create New Account ! <Link to="/signup" className="text-primary ml-2">Register</Link></p>
+                        <p className="text-muted font-weight-bold">Create New Account ! <Link to="/register" className="text-primary ml-2">Register</Link></p>
                     </div>
 
                 </div>
