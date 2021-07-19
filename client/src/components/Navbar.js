@@ -11,9 +11,9 @@ const Navbar = () => {
         localStorage.removeItem('myToken');
         dispatch({ type: LOGOUT });
     };
-  
-     
-    const Links = user  ? (
+
+
+    const Links = user ? (
         <>
             <li className="nav-item px-3 active">
                 <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
@@ -30,46 +30,44 @@ const Navbar = () => {
             </li> */}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Profile
+                    Profile
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-             
-               
-                
-               
-              
 
-                 {user_profiles.length > 0 ? user_profiles.map(user_profile =>(
-					 user_profile.userId !== user._id 
-					)) :  <Link class="dropdown-item"  to="/createprofile" >Create Profile</Link>
-                   
-                    }
+
+
+
+
+
+                    {/* {(user_profiles.length > 0 ? (<Link class="dropdown-item" to="/createprofile" >Create Profile</Link>) : <Link class="dropdown-item"  >Edit Profile</Link>
+
+                    )} */}
                     {user_profiles.length > 0 ? user_profiles.map(user_profile =>
-                    (user_profile.email =  <><Link class="dropdown-item"  to={`/edit/${user_profile.userId}`}>Edit Profile</Link>  </> )
-                    ) :   '' 
+                     (<Link class="dropdown-item"  to={`/edit/${user_profile.userId}`}>Edit Profile</Link> )
+                    ) :  <Link class="dropdown-item"  to="/createprofile" >Create Profile</Link> 
                    
                     }
-                     
-                
-                    
-                         
-                          
-                   
-                    
-                      
 
-                       
 
-                    
-                      
-                   
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     <div class="dropdown-divider"></div>
-                   
+
                     <a class="dropdown-item" href="#">Settings</a>
-                  
-                
+
+
                 </div>
             </li>
             <li className="nav-item px-3">
@@ -100,8 +98,8 @@ const Navbar = () => {
     return (
         < >
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <a href="index.html" class="navbar-brand"><span class="logo">PORTFOLIO<span>MAKERS'S</span></span></a>
-               
+                <a href="index.html" class="navbar-brand"><span class="logo">PORTFOLIO<span>MAKERS'S</span></span></a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

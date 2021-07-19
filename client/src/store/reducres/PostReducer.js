@@ -26,6 +26,8 @@ const initState ={
 	redirect: false,
 	message: '',
 	user_profiles:[],
+	User_profile:[],
+	userProfileStatus: false
 	
 }
 
@@ -65,6 +67,28 @@ export const FetchUserProfile = (state = initState , action) => {
 		};
 		
 	} else {
+		return state;
+	}
+	
+};
+
+export const fetchUserDetails = (state = initState , action) => {
+	const { type, payload } = action;
+	if (type === SET_POST) {
+		return {
+			...state,
+			User_profile : payload,
+			
+		};
+		
+	} else if(type === POST_REQUEST) {
+		return {...state,userProfileStatus: true}
+	}else if(type === POST_RESET) {
+		return {...state,userProfileStatus: false}
+	}
+	
+	
+	else{
 		return state;
 	}
 	

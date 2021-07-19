@@ -1,65 +1,65 @@
-       image 'image i
-       name 'name i
-       email 'email i
-       phone 'phone i
-       age 'age i
-       address 'address i
-       city 'city i
-       state 'state i
-       zipcode 'zipcode i
-       hobby 'hobby i
-       school_name 'school_name i
-       subject_name 'subject_name i
-       passing_year 'passing_year i
-       school_aggregate 'school_aggregate i
-       college_name 'college_name i
-       college_course 'college_course i
-       college_branch 'college_branch i
-       college_passing_year 'college_passing_year i
-       college_aggregate 'college_aggregate i
-       Degree_college_name 'Degree_college_name i
-       Degree_college_course 'Degree_college_course i
-       Degree_college_branch 'Degree_college_branch i
-       Degree_college_passing_year 'Degree_college_passing_year i
-       Degree_college_aggregate 'Degree_college_aggregate i
-       Instiute_name 'Instiute_name i
-       Instiute_course 'Instiute_course i
-       Instiute_branch 'Instiute_branch i
-       Instiute_passing_year 'Instiute_passing_year i
-       Instiute_aggregate 'Instiute_aggregate i
-       first_project_name 'first_project_name i
-       first_project_start_date 'first_project_start_date i
-       first_project_end_date 'first_project_end_date i
-       first_project_desription 'first_project_desription i
-       first_project_key_technologies 'first_project_key_technologies i
-       second_project_name 'second_project_name i
-       second_project_start_date 'second_project_start_date i
-       second_project_end_date 'second_project_end_date i
-       second_project_desription 'second_project_desription i
-       second_project_key_technologies 'second_project_key_technologies i
-       third_project_name 'third_project_name i
-       third_project_start_date 'third_project_start_date i
-       third_project_end_date 'third_project_end_date i
-       third_project_desription 'third_project_desription i
-       third_project_key_technologies 'third_project_key_technologies i
-       fourth_project_name 'fourth_project_name i
-       fourth_project_start_date 'fourth_project_start_date i
-       fourth_project_end_date 'fourth_project_end_date i
-       fourth_project_desription 'fourth_project_desription i
-       fourth_project_key_technologies 'fourth_project_key_technologies i
-       skill_1 'skill_1 i
-       skill_1_percentage 'skill_1_percentage i
-       skill_2 'skill_2 i
-       skill_2_percentage 'skill_2_percentage i
-       skill_3 'skill_3 i
-       skill_3_percentage 'skill_3_percentage i
-       skill_4 'skill_4 i
-       skill_4_percentage 'skill_4_percentage i
-       skill_5 'skill_5 i
-       skill_5_percentage 'skill_5_percentage i
-       skill_6 'skill_6 i
-       skill_6_percentage 'skill_6_percentage i
-       skill_7 'skill_7 i
-       skill_7_percentage 'skill_7_percentage i
-       skill_8 'skill_8 i
-       skill_8_percentage 'skill_8_percentage i
+      image:user_profile.image,
+       name:user_profile.name,
+       email:user_profile.email,
+       phone:user_profile.phone,
+       age:user_profile.age,
+       address:user_profile.address,
+       city:user_profile.city,
+       state:user_profile.state,
+       zipcode:user_profile.zipcode,
+       hobby:user_profile.hobby,
+       school_name:user_profile.school_name,
+       subject_name:user_profile.subject_name,
+       passing_year:user_profile.passing_year,
+       school_aggregate:user_profile.school_aggregate,
+       college_name:user_profile.college_name,
+       college_course:user_profile.college_course,
+       college_branch:user_profile.college_branch,
+       college_passing_year:user_profile.college_passing_year,
+       college_aggregate:user_profile.college_aggregate,
+       Degree_college_name:user_profile.Degree_college_name,
+       Degree_college_course:user_profile.Degree_college_course,
+       Degree_college_branch:user_profile.Degree_college_branch,
+       Degree_college_passing_year:user_profile.Degree_college_passing_year,
+       Degree_college_aggregate:user_profile.Degree_college_aggregate,
+      Instiute_name:user_profile.Instiute_name,
+      Instiute_course:user_profile.Instiute_course,
+      Instiute_branch:user_profile.Instiute_branch,
+      Instiute_passing_year:user_profile.Instiute_passing_year,
+      Instiute_aggregate:user_profile.Instiute_aggregate,
+       first_project_name:user_profile.first_project_name,
+       first_project_start_date:user_profile.first_project_start_date,
+       first_project_end_date:user_profile.first_project_end_date,
+       first_project_desription:user_profile.first_project_desription,
+       first_project_key_technologies:user_profile.first_project_key_technologies,
+       second_project_name:user_profile.second_project_name,
+       second_project_start_date:user_profile.second_project_start_date,
+       second_project_end_date:user_profile.second_project_end_date,
+       second_project_desription:user_profile.second_project_desription,
+       second_project_key_technologies:user_profile.second_project_key_technologies,
+       third_project_name:user_profile.third_project_name,
+       third_project_start_date:user_profile.third_project_start_date,
+       third_project_end_date:user_profile.third_project_end_date,
+       third_project_desription:user_profile.third_project_desription,
+       third_project_key_technologies:user_profile.third_project_key_technologies,
+       fourth_project_name:user_profile.fourth_project_name,
+       fourth_project_start_date:user_profile.fourth_project_start_date,
+       fourth_project_end_date:user_profile.fourth_project_end_date,
+       fourth_project_desription:user_profile.fourth_project_desription,
+       fourth_project_key_technologies:user_profile.fourth_project_key_technologies,
+       skill_1:user_profile.skill_1,
+       skill_1_percentage:user_profile.skill_1_percentage,
+       skill_2:user_profile.skill_2,
+       skill_2_percentage:user_profile.skill_2_percentage,
+       skill_3:user_profile.skill_3,
+       skill_3_percentage:user_profile.skill_3_percentage,
+       skill_4:user_profile.skill_4,
+       skill_4_percentage:user_profile.skill_4_percentage,
+       skill_5:user_profile.skill_5,
+       skill_5_percentage:user_profile.skill_5_percentage,
+       skill_6:user_profile.skill_6,
+       skill_6_percentage:user_profile.skill_6_percentage,
+       skill_7:user_profile.skill_7,
+       skill_7_percentage:user_profile.skill_7_percentage,
+       skill_8:user_profile.skill_8,
+       skill_8_percentage:user_profile.skill_8_percentage,

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { data } from 'jquery';
 
 import {
 	CREATE_ERRORS,
@@ -43,7 +44,7 @@ export const createAction = (postData) => {
 
             
         } catch (error) {
-			console.log(error.response)
+			
 			const {errors}= error.response.data;
 			
 			dispatch({type: CLOSE_LOADER});
@@ -68,11 +69,36 @@ export const fetchProfile = (id) => {
 				},
 			};
 			const {data : {response}} = await axios.get(`/user_profiles/${id}`, config);
-			console.log(response);
+			
 			dispatch({type: CLOSE_LOADER});
 			dispatch({type: SET_POSTS, payload: response});
+			
 		} catch (error) {
 			dispatch({type: CLOSE_LOADER});
+			
+		}
+	}
+};
+export const  fetchUserDetails = (id) => {
+	return async (dispatch,getState) =>{
+		const {AuthReducer: { token }} = getState();
+		
+		const config = {
+			headers: {
+				Authorization: `Bearer ${token}`, //jwt Format Bearer
+			},
+		};
+		dispatch({type: SET_LOADER});
+		try {
+			const {data : { User_profile}} = await axios.get(`/User_profile/${id}`, config);
+		
+			dispatch({type: CLOSE_LOADER});
+			dispatch({type: SET_POST, payload: User_profile});
+			dispatch({type: POST_REQUEST});
+			
+		} catch (error) {
+			dispatch({type: CLOSE_LOADER});
+		
 			
 		}
 	}

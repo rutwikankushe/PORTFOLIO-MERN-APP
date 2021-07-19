@@ -377,3 +377,13 @@ module.exports.fetchProfile = async (req,res) => {
     }
 
 };
+module.exports.fetchUserDetails = async(req,res) => {
+    const id= req.params.id;
+    try {
+        const User_profile = await user_profile.findOne({userId: id});
+        return res.status(200).json({ User_profile});
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).json({errors: error, msg: error.message});
+    }
+}

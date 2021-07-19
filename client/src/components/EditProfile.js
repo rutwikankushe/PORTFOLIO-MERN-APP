@@ -1,9 +1,13 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Helmet} from "react-helmet";
 import {useParams} from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import {fetchUserDetails} from '../store/asyncMethods/PostMethods';
+import {POST_RESET} from '../store/types/PostTypes';
 export const Edit = () => {
     const {id} = useParams();
+    
     const [value, setValue] = useState('');
 	const [state, setState] = useState({
         image: '',
@@ -74,6 +78,88 @@ export const Edit = () => {
 
 
 	});
+    const dispatch = useDispatch();
+    const {loading} = useSelector(state => state.PostReducer);
+    const {User_profile,userProfileStatus} = useSelector(state => state.fetchUserDetails)
+    useEffect(()=> {
+        if(userProfileStatus){
+            setState({
+                image:User_profile.image,
+                name:User_profile.name,
+                email:User_profile.email,
+                phone:User_profile.phone,
+                age:User_profile.age,
+                address:User_profile.address,
+                city:User_profile.city,
+                state:User_profile.state,
+                zipcode:User_profile.zipcode,
+                hobby:User_profile.hobby,
+                school_name:User_profile.school_name,
+                subject_name:User_profile.subject_name,
+                passing_year:User_profile.passing_year,
+                school_aggregate:User_profile.school_aggregate,
+                college_name:User_profile.college_name,
+                college_course:User_profile.college_course,
+                college_branch:User_profile.college_branch,
+                college_passing_year:User_profile.college_passing_year,
+                college_aggregate:User_profile.college_aggregate,
+                Degree_college_name:User_profile.Degree_college_name,
+                Degree_college_course:User_profile.Degree_college_course,
+                Degree_college_branch:User_profile.Degree_college_branch,
+                Degree_college_passing_year:User_profile.Degree_college_passing_year,
+                Degree_college_aggregate:User_profile.Degree_college_aggregate,
+               Instiute_name:User_profile.Instiute_name,
+               Instiute_course:User_profile.Instiute_course,
+               Instiute_branch:User_profile.Instiute_branch,
+               Instiute_passing_year:User_profile.Instiute_passing_year,
+               Instiute_aggregate:User_profile.Instiute_aggregate,
+                first_project_name:User_profile.first_project_name,
+                first_project_start_date:User_profile.first_project_start_date,
+                first_project_end_date:User_profile.first_project_end_date,
+                first_project_desription:User_profile.first_project_desription,
+                first_project_key_technologies:User_profile.first_project_key_technologies,
+                second_project_name:User_profile.second_project_name,
+                second_project_start_date:User_profile.second_project_start_date,
+                second_project_end_date:User_profile.second_project_end_date,
+                second_project_desription:User_profile.second_project_desription,
+                second_project_key_technologies:User_profile.second_project_key_technologies,
+                third_project_name:User_profile.third_project_name,
+                third_project_start_date:User_profile.third_project_start_date,
+                third_project_end_date:User_profile.third_project_end_date,
+                third_project_desription:User_profile.third_project_desription,
+                third_project_key_technologies:User_profile.third_project_key_technologies,
+                fourth_project_name:User_profile.fourth_project_name,
+                fourth_project_start_date:User_profile.fourth_project_start_date,
+                fourth_project_end_date:User_profile.fourth_project_end_date,
+                fourth_project_desription:User_profile.fourth_project_desription,
+                fourth_project_key_technologies:User_profile.fourth_project_key_technologies,
+                skill_1:User_profile.skill_1,
+                skill_1_percentage:User_profile.skill_1_percentage,
+                skill_2:User_profile.skill_2,
+                skill_2_percentage:User_profile.skill_2_percentage,
+                skill_3:User_profile.skill_3,
+                skill_3_percentage:User_profile.skill_3_percentage,
+                skill_4:User_profile.skill_4,
+                skill_4_percentage:User_profile.skill_4_percentage,
+                skill_5:User_profile.skill_5,
+                skill_5_percentage:User_profile.skill_5_percentage,
+                skill_6:User_profile.skill_6,
+                skill_6_percentage:User_profile.skill_6_percentage,
+                skill_7:User_profile.skill_7,
+                skill_7_percentage:User_profile.skill_7_percentage,
+                skill_8:User_profile.skill_8,
+                skill_8_percentage:User_profile.skill_8_percentage,
+                
+            })
+            setValue(User_profile.body);
+            dispatch({type:POST_RESET});
+
+        }else{
+            dispatch(fetchUserDetails(id));
+        }
+       
+    },[User_profile]);
+   
     return ( 
         < >
             <Helmet>
@@ -159,7 +245,7 @@ export const Edit = () => {
                                     </div>
                                     <div className="form-group">
                                         <label for="inputAddress2">Hobby</label>
-                                        <input type="text" name="hobby" className="form-control" value={state.hobby} onChange={(e) => setState({...state,hobby:e.target.value})} id="hobby" placeholder="Hobby" />
+                                        <textarea cols="100" rows="5" type="text" name="hobby" className="form-control" value={state.hobby} onChange={(e) => setState({...state,hobby:e.target.value})} id="hobby" placeholder="Hobby" ></textarea>
                                     </div>
 
 
@@ -311,11 +397,11 @@ export const Edit = () => {
 
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
-                                                <textarea type="text" name="first_project_desription" className="form-control" value={state.first_project_desription} onChange={(e) => setState({...state,first_project_desription:e.target.value})} id="first_project_desription" placeholder="Description" />
+                                                <textarea  cols="100" rows="5" type="text" name="first_project_desription" className="form-control" value={state.first_project_desription} onChange={(e) => setState({...state,first_project_desription:e.target.value})} id="first_project_desription" placeholder="Description" />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label for="inputAge">key Technologies Used</label>
-                                                <input type="password" name="first_project_key_technologies" className="form-control" value={state.first_project_key_technologies} onChange={(e) => setState({...state,first_project_key_technologies:e.target.value})} id="inputAge" placeholder="key Technologies" />
+                                                <input type="text" name="first_project_key_technologies" className="form-control" value={state.first_project_key_technologies} onChange={(e) => setState({...state,first_project_key_technologies:e.target.value})} id="inputAge" placeholder="key Technologies" />
                                             </div>
 
                                         </div>
@@ -341,11 +427,11 @@ export const Edit = () => {
 
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
-                                                <textarea type="text" name="second_project_desription" className="form-control" value={state.second_project_desription} onChange={(e) => setState({...state,second_project_desription:e.target.value})} id="second_project_desription" placeholder="Description" />
+                                                <textarea type="text"  cols="100" rows="5" name="second_project_desription" className="form-control" value={state.second_project_desription} onChange={(e) => setState({...state,second_project_desription:e.target.value})} id="second_project_desription" placeholder="Description" />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label for="inputAge">key Technologies Used</label>
-                                                <input type="password" name="second_project_key_technologies" className="form-control" value={state.second_project_key_technologies} onChange={(e) => setState({...state,second_project_key_technologies:e.target.value})} id="second_project_key_technologies" placeholder="key Technologies" />
+                                                <input type="text" name="second_project_key_technologies" className="form-control" value={state.second_project_key_technologies} onChange={(e) => setState({...state,second_project_key_technologies:e.target.value})} id="second_project_key_technologies" placeholder="key Technologies" />
                                             </div>
 
                                         </div>
@@ -371,11 +457,11 @@ export const Edit = () => {
 
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
-                                                <textarea type="text" name="third_project_desription" className="form-control" value={state.third_project_desription} onChange={(e) => setState({...state,third_project_desription:e.target.value})} id="third_project_desription" placeholder="Description" />
+                                                <textarea type="text"  cols="100" rows="5" name="third_project_desription" className="form-control" value={state.third_project_desription} onChange={(e) => setState({...state,third_project_desription:e.target.value})} id="third_project_desription" placeholder="Description" />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label for="inputAge">key Technologies Used</label>
-                                                <input type="password" name="third_project_key_technologies" className="form-control" value={state.third_project_key_technologies} onChange={(e) => setState({...state,third_project_key_technologies:e.target.value})} id="third_project_key_technologies" placeholder="key Technologies" />
+                                                <input type="text" name="third_project_key_technologies" className="form-control" value={state.third_project_key_technologies} onChange={(e) => setState({...state,third_project_key_technologies:e.target.value})} id="third_project_key_technologies" placeholder="key Technologies" />
                                             </div>
 
                                         </div>
@@ -401,11 +487,11 @@ export const Edit = () => {
 
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
-                                                <textarea type="text" name="fourth_project_desription" className="form-control" value={state.fourth_project_desription} onChange={(e) => setState({...state,fourth_project_desription:e.target.value})} id="fourth_project_desription" placeholder="Description" />
+                                                <textarea type="text"  cols="100" rows="5" name="fourth_project_desription" className="form-control" value={state.fourth_project_desription} onChange={(e) => setState({...state,fourth_project_desription:e.target.value})} id="fourth_project_desription" placeholder="Description" />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label for="inputAge">key Technologies Used</label>
-                                                <input type="password" name="fourth_project_key_technologies" className="form-control" value={state.fourth_project_key_technologies} onChange={(e) => setState({...state,fourth_project_key_technologies:e.target.value})} id="fourth_project_key_technologies" placeholder="key Technologies" />
+                                                <input type="text" name="fourth_project_key_technologies" className="form-control" value={state.fourth_project_key_technologies} onChange={(e) => setState({...state,fourth_project_key_technologies:e.target.value})} id="fourth_project_key_technologies" placeholder="key Technologies" />
                                             </div>
 
                                         </div>
