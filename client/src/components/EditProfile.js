@@ -237,6 +237,7 @@ export const Edit = () => {
         if (editErrors.length !== 0) {
             editErrors.map((error) => toast.error(error.msg));
             dispatch({ type: RESET_UPDATE_ERRORS });
+            
         }
     }, [editErrors]);
     useEffect(() => {
