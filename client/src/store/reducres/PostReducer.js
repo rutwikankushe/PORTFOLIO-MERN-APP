@@ -27,7 +27,8 @@ const initState ={
 	message: '',
 	user_profiles:[],
 	User_profile:[],
-	userProfileStatus: false
+	userProfileStatus: false,
+	editErrors: [],
 	
 }
 
@@ -93,3 +94,19 @@ export const fetchUserDetails = (state = initState , action) => {
 	}
 	
 };
+export const UpdateProfile = (state = initState, action) =>{
+	const {type, payload} =action;
+	if(type === SET_UPDATE_ERRORS) {
+		return {...state, editErrors: payload };
+
+	}else if(type=== RESET_UPDATE_ERRORS){
+		return {
+			...state,
+			editErrors:[],
+		}
+	}
+	
+	else {
+		return state;
+	}
+}

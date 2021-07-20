@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import AuthReducer from './reducres/AuthReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {PostReducer , FetchUserProfile, fetchUserDetails} from './reducres/PostReducer';
+import {PostReducer , FetchUserProfile, fetchUserDetails,UpdateProfile} from './reducres/PostReducer';
 
 
 const rootReducers = combineReducers({
@@ -10,6 +10,7 @@ const rootReducers = combineReducers({
 	PostReducer,
 	FetchUserProfile,
 	fetchUserDetails,
+	UpdateProfile
 
 	
 });
