@@ -21,9 +21,9 @@ function App() {
 			<Router>
 			<Navbar/>
 				<Switch>
-					<PrivateRoute path='/' exact component={Home} />
-					<PrivateRoute path='/about' exact component={About} />
-					<PrivateRoute  path='/contact' exact component={Contact} />
+					<Route path='/' exact component={Home} />
+					<Route path='/about' exact component={About} />
+					<Route  path='/contact' exact component={Contact} />
 					<Route  path='/loader' exact component={Loader} />
 					<PrivateRoute  path='/createprofile' exact component={CreateProfile} />
 					<RouteLinks  path='/login' exact component={Login} />
@@ -40,6 +40,8 @@ function App() {
 			</Provider>
 		
 	);
+	
 }
+
 
 export default App;
