@@ -29,15 +29,15 @@ const verifyToken = (token) => {
 	}
 };
 
-// const token = localStorage.getItem('myToken');
-// if (token) {
-// 	const decoded = verifyToken(token);
-//     initState.token = token;
-// 	const { user } = decoded;
-// 	initState.user = user;
+const token = localStorage.getItem('myToken');
+if (token) {
+	const decoded = verifyToken(token);
+    initState.token = token;
+	const { user } = decoded;
+	initState.user = user;
 	
 
-// }
+}
 const AuthReducer = (state = initState,action) =>{
     if (action.type === SET_LOADER) {
 		return { ...state, loading: true }

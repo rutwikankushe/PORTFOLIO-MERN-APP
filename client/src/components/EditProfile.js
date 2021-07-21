@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserDetails, updateAction } from '../store/asyncMethods/PostMethods';
 import { POST_RESET, RESET_UPDATE, RESET_UPDATE_ERRORS } from '../store/types/PostTypes';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import Loader from './Loader';
 export const Edit = () => {
     const { id } = useParams();
@@ -152,6 +153,7 @@ export const Edit = () => {
                 skill_7_percentage: User_profile.skill_7_percentage,
                 skill_8: User_profile.skill_8,
                 skill_8_percentage: User_profile.skill_8_percentage,
+                userId: User_profile.userId,
 
             })
             setValue(User_profile.body);
@@ -230,7 +232,7 @@ export const Edit = () => {
             skill_7_percentage: state.skill_7_percentage,
             skill_8: state.skill_8,
             skill_8_percentage: state.skill_8_percentage,
-            id: User_profile._id,
+        
         }))
     };
     useEffect(() => {
@@ -267,9 +269,8 @@ export const Edit = () => {
                         <div className="profile-img">
                             <img src={`/images/${User_profile.image}`} alt={User_profile.image} />
                             <div className="file btn btn-lg btn-primary">
-
-                                <input type="file" name="image" id="image" />
-                                Choose Image
+                                <Link to={`/updateImage/${User_profile.userId}`}>Update image</Link>
+                             
                             </div>
                         </div>
                     </div>

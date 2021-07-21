@@ -15,13 +15,14 @@ import NotFound from './components/NotFound';
 import Store from './store';
 import Loader from './components/Loader';
 import Edit from './components/EditProfile';
+import EditImage from './components/EditImage';
 function App() {
 	return (
 		<Provider store={Store}>
 			<Router>
 			<Navbar/>
 				<Switch>
-					<Route path='/' exact component={Home} />
+					<PrivateRoute path='/' exact component={Home} />
 					<Route path='/about' exact component={About} />
 					<Route  path='/contact' exact component={Contact} />
 					<Route  path='/loader' exact component={Loader} />
@@ -29,9 +30,10 @@ function App() {
 					<RouteLinks  path='/login' exact component={Login} />
 					<RouteLinks  path='/register' exact component={Register} />
 					<PrivateRoute path='/dashboard' exact component={Dashboard} />
+					<PrivateRoute path='/updateImage/:id' exact component={EditImage} />
 					<PrivateRoute path='/edit/:id' exact component={Edit} />
 
-					<Route  component={NotFound} />
+					<PrivateRoute  component={NotFound} />
 					
 					
 					

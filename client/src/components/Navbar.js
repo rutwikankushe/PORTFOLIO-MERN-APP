@@ -1,17 +1,18 @@
 import React from 'react';
-import { Link, PrivateRoute } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { LOGOUT } from '../store/types/UserTypes';
 
 const Navbar = () => {
     const { user } = useSelector((state) => state.AuthReducer);
+	
     const { user_profiles } = useSelector((state) => state.FetchUserProfile);
     const dispatch = useDispatch();
     const logout = () => {
         localStorage.removeItem('myToken');
         dispatch({ type: LOGOUT });
     };
-
+    
 
     const Links = user ? (
         <>

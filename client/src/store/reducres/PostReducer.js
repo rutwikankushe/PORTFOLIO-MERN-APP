@@ -29,6 +29,7 @@ const initState ={
 	User_profile:[],
 	userProfileStatus: false,
 	editErrors: [],
+	updateImageErrors: [],
 	
 }
 
@@ -110,3 +111,20 @@ export const UpdateProfile = (state = initState, action) =>{
 		return state;
 	}
 }
+export const UpdateImage = (state = initState, action) => {
+	const { payload, type } = action;
+	if (type === UPDATE_IMAGE_ERROR) {
+		return {
+			...state,
+			updateImageErrors: payload,
+		};
+	} else if (type === RESET_UPDATE_IMAGE_ERRORS) {
+		return {
+			...state,
+			updateImageErrors: [],
+		};
+	} else {
+		return state;
+	}
+};
+

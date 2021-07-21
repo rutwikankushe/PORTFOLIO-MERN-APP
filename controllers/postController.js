@@ -1,12 +1,12 @@
 const formidable = require('formidable');
 const { uuid } = require('uuidv4');
-const fs= require('fs');
+const fs = require('fs');
 const user_profile = require("../models/Post")
-const {body,validationResult} = require("express-validator");
+const { body, validationResult } = require("express-validator");
 module.exports.createProfile = (req, res) => {
     const form = formidable({ multiples: true });
     form.parse(req, async (error, fields, files) => {
-        const { 
+        const {
             name,
             email,
             phone,
@@ -72,7 +72,7 @@ module.exports.createProfile = (req, res) => {
             skill_8,
             skill_8_percentage, user, id } = fields;
         const errors = [];
-        
+
         if (name === '') {
             errors.push({ msg: 'name is required' })
         }
@@ -266,126 +266,126 @@ module.exports.createProfile = (req, res) => {
             errors.push({ msg: 'skill_8_percentage is required' })
         }
         if (Object.keys(files).length === 0) {
-			errors.push({ msg: 'Image is required' });
-		} else {
-			const { type } = files.image;
-			const split = type.split('/');
-			const extension = split[1].toLowerCase();
-			if (extension !== 'jpg' && extension !== 'jpeg' && extension !== 'png') {
-				errors.push({ msg: `${extension} is not a valid extension` });
-			} else {
-				files.image.name = uuid() + '.' + extension;
+            errors.push({ msg: 'Image is required' });
+        } else {
+            const { type } = files.image;
+            const split = type.split('/');
+            const extension = split[1].toLowerCase();
+            if (extension !== 'jpg' && extension !== 'jpeg' && extension !== 'png') {
+                errors.push({ msg: `${extension} is not a valid extension` });
+            } else {
+                files.image.name = uuid() + '.' + extension;
                 const newPath = __dirname + `/../client/public/images/${files.image.name}`;
                 fs.copyFile(files.image.path, newPath, async (error) => {
                     if (!error) {
-                      try {
-                          const response = await user_profile.create({
-                            image : files.image.name ,
-                            name,
-                            email ,
-                            phone,
-                            age,
-                            address ,
-                            city ,
-                            user_state ,
-                            zipcode ,
-                            hobby ,
-                     school_name,
-                     subject_name,
-                     passing_year,
-                     school_aggregate,
-                     college_name,
-                     college_course,
-                     college_branch,
-                     college_passing_year,
-                     college_aggregate,
-                     Degree_college_name,
-                     Degree_college_course,
-                     Degree_college_branch,
-                     Degree_college_passing_year,
-                     Degree_college_aggregate,
-                     Instiute_name,
-                     Instiute_course,
-                     Instiute_branch,
-                     Instiute_passing_year,
-                     Instiute_aggregate,
-                     first_project_name,
-                     first_project_start_date,
-                     first_project_end_date,
-                     first_project_desription,
-                     first_project_key_technologies,
-                     second_project_name,
-                     second_project_start_date,
-                     second_project_end_date,
-                     second_project_desription,
-                     second_project_key_technologies,
-                     third_project_name,
-                     third_project_start_date,
-                     third_project_end_date,
-                     third_project_desription,
-                     third_project_key_technologies,
-                     fourth_project_name,
-                     fourth_project_start_date,
-                     fourth_project_end_date,
-                     fourth_project_desription,
-                     fourth_project_key_technologies,
-                     skill_1,
-                     skill_1_percentage,
-                     skill_2,
-                     skill_2_percentage,
-                     skill_3,
-                     skill_3_percentage,
-                     skill_4,
-                     skill_4_percentage,
-                     skill_5,
-                     skill_5_percentage,
-                     skill_6,
-                     skill_6_percentage,
-                     skill_7,
-                     skill_7_percentage,
-                     skill_8,
-                     skill_8_percentage,
-                     userId : id,
-                     
-                     
-                     
-                          });
-                          return res.status(200).json({msg: ' Your Profile Created Succesfully', response,} )
-                          
-                      } catch (error) {
-                          
-                        return res.status(500).json({errors: error, msg: error.message})
-                          
-                      }
+                        try {
+                            const response = await user_profile.create({
+                                image: files.image.name,
+                                name,
+                                email,
+                                phone,
+                                age,
+                                address,
+                                city,
+                                user_state,
+                                zipcode,
+                                hobby,
+                                school_name,
+                                subject_name,
+                                passing_year,
+                                school_aggregate,
+                                college_name,
+                                college_course,
+                                college_branch,
+                                college_passing_year,
+                                college_aggregate,
+                                Degree_college_name,
+                                Degree_college_course,
+                                Degree_college_branch,
+                                Degree_college_passing_year,
+                                Degree_college_aggregate,
+                                Instiute_name,
+                                Instiute_course,
+                                Instiute_branch,
+                                Instiute_passing_year,
+                                Instiute_aggregate,
+                                first_project_name,
+                                first_project_start_date,
+                                first_project_end_date,
+                                first_project_desription,
+                                first_project_key_technologies,
+                                second_project_name,
+                                second_project_start_date,
+                                second_project_end_date,
+                                second_project_desription,
+                                second_project_key_technologies,
+                                third_project_name,
+                                third_project_start_date,
+                                third_project_end_date,
+                                third_project_desription,
+                                third_project_key_technologies,
+                                fourth_project_name,
+                                fourth_project_start_date,
+                                fourth_project_end_date,
+                                fourth_project_desription,
+                                fourth_project_key_technologies,
+                                skill_1,
+                                skill_1_percentage,
+                                skill_2,
+                                skill_2_percentage,
+                                skill_3,
+                                skill_3_percentage,
+                                skill_4,
+                                skill_4_percentage,
+                                skill_5,
+                                skill_5_percentage,
+                                skill_6,
+                                skill_6_percentage,
+                                skill_7,
+                                skill_7_percentage,
+                                skill_8,
+                                skill_8_percentage,
+                                userId: id,
+
+
+
+                            });
+                            return res.status(200).json({ msg: ' Your Profile Created Succesfully', response, })
+
+                        } catch (error) {
+
+                            return res.status(500).json({ errors: error, msg: error.message })
+
+                        }
                     }
                 });
-			}
-		}
+            }
+        }
         if (errors.length !== 0) {
-			return res.status(400).json({ errors, files });
-		} 
+            return res.status(400).json({ errors, files });
+        }
     });
 };
 
-module.exports.fetchProfile = async (req,res) => {
+module.exports.fetchProfile = async (req, res) => {
 
-    const id= req.params.id;
+    const id = req.params.id;
     try {
-        const response =await user_profile.find({userId: id})
-        return res.status(200).json({response: response});
+        const response = await user_profile.find({ userId: id })
+        return res.status(200).json({ response: response });
     } catch (error) {
-        return res.status(500).json({errors: error, msg: error.message});
+        return res.status(500).json({ errors: error, msg: error.message });
     }
 
 };
-module.exports.fetchUserDetails = async(req,res) => {
-    const id= req.params.id;
+module.exports.fetchUserDetails = async (req, res) => {
+    const id = req.params.id;
     try {
-        const User_profile = await user_profile.findOne({userId: id});
-        return res.status(200).json({ User_profile});
+        const User_profile = await user_profile.findOne({ userId: id });
+        return res.status(200).json({ User_profile });
     } catch (error) {
         console.log(error.message)
-        return res.status(500).json({errors: error, msg: error.message});
+        return res.status(500).json({ errors: error, msg: error.message });
     }
 };
 
@@ -437,17 +437,17 @@ module.exports.updateValidations = [
 
     body('Degree_college_aggregate').notEmpty().trim().withMessage('Degree_college_aggregate is required'),
 
-   body('Instiute_name').notEmpty().trim().withMessage('Instiute_name is required'),
+    body('Instiute_name').notEmpty().trim().withMessage('Instiute_name is required'),
 
-   body('Instiute_course').notEmpty().trim().withMessage('Instiute_course is required'),
+    body('Instiute_course').notEmpty().trim().withMessage('Instiute_course is required'),
 
-   body('Instiute_branch').notEmpty().trim().withMessage('Instiute_branch is required'),
+    body('Instiute_branch').notEmpty().trim().withMessage('Instiute_branch is required'),
 
-   body('Instiute_passing_year').notEmpty().trim().withMessage('Instiute_passing_year is required'),
+    body('Instiute_passing_year').notEmpty().trim().withMessage('Instiute_passing_year is required'),
 
-   body('Instiute_aggregate').notEmpty().trim().withMessage('Instiute_aggregate is required'),
+    body('Instiute_aggregate').notEmpty().trim().withMessage('Instiute_aggregate is required'),
 
-   body('first_project_name').notEmpty().trim().withMessage('first_project_name is required'),
+    body('first_project_name').notEmpty().trim().withMessage('first_project_name is required'),
 
     body('first_project_start_date').notEmpty().trim().withMessage('first_project_start_date is required'),
 
@@ -518,11 +518,11 @@ module.exports.updateValidations = [
     body('skill_8').notEmpty().trim().withMessage('skill_8 is required'),
 
     body('skill_8_percentage').notEmpty().trim().withMessage('skill_8_percentage is required'),
-  
+
 
 ];
-module.exports.updateProfile = async(req,res) => {
-    const { 
+module.exports.updateProfile = async (req, res) => {
+    const {
         name,
         email,
         phone,
@@ -586,82 +586,117 @@ module.exports.updateProfile = async(req,res) => {
         skill_7,
         skill_7_percentage,
         skill_8,
-        skill_8_percentage,id } = req.body;
+        skill_8_percentage, id } = req.body;
     const errors = validationResult(req);
-    if(!errors.isEmpty()){
-        return res.status(400).json({ errors:errors.array()});
-    }else{
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    } else {
         try {
-			const response = await user_profile.findByIdAndUpdate(id, {
-				name,
-        email,
-        phone,
-        age,
-        address,
-        city,
-        user_state,
-        zipcode,
-        hobby,
-        school_name,
-        subject_name,
-        passing_year,
-        school_aggregate,
-        college_name,
-        college_course,
-        college_branch,
-        college_passing_year,
-        college_aggregate,
-        Degree_college_name,
-        Degree_college_course,
-        Degree_college_branch,
-        Degree_college_passing_year,
-        Degree_college_aggregate,
-        Instiute_name,
-        Instiute_course,
-        Instiute_branch,
-        Instiute_passing_year,
-        Instiute_aggregate,
-        first_project_name,
-        first_project_start_date,
-        first_project_end_date,
-        first_project_desription,
-        first_project_key_technologies,
-        second_project_name,
-        second_project_start_date,
-        second_project_end_date,
-        second_project_desription,
-        second_project_key_technologies,
-        third_project_name,
-        third_project_start_date,
-        third_project_end_date,
-        third_project_desription,
-        third_project_key_technologies,
-        fourth_project_name,
-        fourth_project_start_date,
-        fourth_project_end_date,
-        fourth_project_desription,
-        fourth_project_key_technologies,
-        skill_1,
-        skill_1_percentage,
-        skill_2,
-        skill_2_percentage,
-        skill_3,
-        skill_3_percentage,
-        skill_4,
-        skill_4_percentage,
-        skill_5,
-        skill_5_percentage,
-        skill_6,
-        skill_6_percentage,
-        skill_7,
-        skill_7_percentage,
-        skill_8,
-        skill_8_percentage,
-			});
-			return res.status(200).json({ msg: 'Your Profile has been updated Successfully' });
-		} catch (error) {
-			return res.status(500).json({ errors: error, msg: error.message });
-		}
+            const response = await user_profile.findByIdAndUpdate(id, {
+                name,
+                email,
+                phone,
+                age,
+                address,
+                city,
+                user_state,
+                zipcode,
+                hobby,
+                school_name,
+                subject_name,
+                passing_year,
+                school_aggregate,
+                college_name,
+                college_course,
+                college_branch,
+                college_passing_year,
+                college_aggregate,
+                Degree_college_name,
+                Degree_college_course,
+                Degree_college_branch,
+                Degree_college_passing_year,
+                Degree_college_aggregate,
+                Instiute_name,
+                Instiute_course,
+                Instiute_branch,
+                Instiute_passing_year,
+                Instiute_aggregate,
+                first_project_name,
+                first_project_start_date,
+                first_project_end_date,
+                first_project_desription,
+                first_project_key_technologies,
+                second_project_name,
+                second_project_start_date,
+                second_project_end_date,
+                second_project_desription,
+                second_project_key_technologies,
+                third_project_name,
+                third_project_start_date,
+                third_project_end_date,
+                third_project_desription,
+                third_project_key_technologies,
+                fourth_project_name,
+                fourth_project_start_date,
+                fourth_project_end_date,
+                fourth_project_desription,
+                fourth_project_key_technologies,
+                skill_1,
+                skill_1_percentage,
+                skill_2,
+                skill_2_percentage,
+                skill_3,
+                skill_3_percentage,
+                skill_4,
+                skill_4_percentage,
+                skill_5,
+                skill_5_percentage,
+                skill_6,
+                skill_6_percentage,
+                skill_7,
+                skill_7_percentage,
+                skill_8,
+                skill_8_percentage,
+            });
+            return res.status(200).json({ msg: 'Your Profile has been updated Successfully' });
+        } catch (error) {
+            return res.status(500).json({ errors: error, msg: error.message });
+        }
     }
 
+};
+module.exports.updateImage = (req, res) => {
+	const form = formidable({ multiples: true });
+	form.parse(req, (errors, fields, files) => {
+		const { id } = fields;
+		const imageErrors = [];
+		if (Object.keys(files).length === 0) {
+			imageErrors.push({ msg: 'Please choose image' });
+		} else {
+			const { type } = files.image;
+			const split = type.split('/');
+			const extension = split[1].toLowerCase();
+			if (extension !== 'jpg' && extension !== 'jpeg' && extension !== 'png') {
+				imageErrors.push({ msg: `${extension} is not a valid extension` });
+			} else {
+				files.image.name = uuid() + '.' + extension;
+			}
+		}
+		if (imageErrors.length !== 0) {
+			return res.status(400).json({ errors: imageErrors });
+		} else {
+			const newPath = __dirname + `/../client/public/images/${files.image.name}`;
+			fs.copyFile(files.image.path, newPath, async (error) => {
+				if (!error) {
+					try {
+						const response = await user_profile.findByIdAndUpdate(id,{image:files.image.name});
+                        
+						return res.status(200).json({ msg: 'Your image has been updated' });
+					} catch (error) {
+						return res.status(500).json({ errors: error, msg: error.message });
+					}
+				}
+			});
+		}
+	});
 };
