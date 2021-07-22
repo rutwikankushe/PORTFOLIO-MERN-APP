@@ -1,7 +1,8 @@
 const formidable = require('formidable');
-const { uuid } = require('uuidv4');
+const { v4: uuid } = require('uuid');
 const fs = require('fs');
 const user_profile = require("../models/Post")
+
 const { body, validationResult } = require("express-validator");
 module.exports.createProfile = (req, res) => {
     const form = formidable({ multiples: true });
@@ -665,7 +666,7 @@ module.exports.updateProfile = async (req, res) => {
     }
 
 };
-module.exports.updateImage = (req, res) => {
+module.exports.updateImage =async (req, res) => {
 	const form = formidable({ multiples: true });
 	form.parse(req, (errors, fields, files) => {
 		const { id } = fields;
@@ -689,8 +690,9 @@ module.exports.updateImage = (req, res) => {
 			fs.copyFile(files.image.path, newPath, async (error) => {
 				if (!error) {
 					try {
-						const response = await user_profile.findByIdAndUpdate(id,{image:files.image.name});
-                        
+						const response = await user_profile.findByIdAndUpdate(id, {
+							image: files.image.name,
+						});
 						return res.status(200).json({ msg: 'Your image has been updated' });
 					} catch (error) {
 						return res.status(500).json({ errors: error, msg: error.message });

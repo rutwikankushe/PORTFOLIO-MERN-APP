@@ -12,7 +12,11 @@ const Navbar = () => {
         localStorage.removeItem('myToken');
         dispatch({ type: LOGOUT });
     };
-    
+
+    const divStyle ={
+        style: "dispaly:none",
+    }
+   
 
     const Links = user ? (
         <>
@@ -42,10 +46,15 @@ const Navbar = () => {
 
                     {/* {(user_profiles.length > 0 ? (<Link class="dropdown-item" to="/createprofile" >Create Profile</Link>) : <Link class="dropdown-item"  >Edit Profile</Link>
 
+
                     )} */}
-                    {user_profiles.length > 0 ? user_profiles.map(user_profile =>
+                    {user_profiles.length > 0 ?
+                    user_profiles.map(user_profile =>
                      (<Link class="dropdown-item"  to={`/edit/${user_profile.userId}`}>Edit Profile</Link> )
-                    ) :  <Link class="dropdown-item"  to="/createprofile" >Create Profile</Link> 
+                    ) 
+                    :  
+                    
+                    <Link class="dropdown-item"  to="/createprofile" >Create Profile</Link> 
                    
                     }
 

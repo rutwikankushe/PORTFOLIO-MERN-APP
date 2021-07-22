@@ -33,6 +33,7 @@
     "popper.js": "^1.16.1",
     "react-bootstrap": "^1.6.1",
     "react-hot-toast": "^2.0.0",
+    "react-uuid": "^1.0.2",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.11"
   }

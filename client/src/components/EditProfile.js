@@ -232,6 +232,7 @@ export const Edit = () => {
             skill_7_percentage: state.skill_7_percentage,
             skill_8: state.skill_8,
             skill_8_percentage: state.skill_8_percentage,
+            id:User_profile._id,
         
         }))
     };
