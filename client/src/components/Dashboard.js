@@ -189,6 +189,17 @@ export const Dashboard = () => {
 																	</div>
 																	<div class="section__list-item">
 																		<div class="left">
+																			<div class="name">{user_profile.school_name}</div>
+																			<div class="addr">{user_profile.subject_name}</div>
+																		
+																		</div>
+																		<div class="right">
+																			<div class="name">{user_profile.school_aggregate}%</div>
+																			<div class="desc">{user_profile.passing_year}</div>
+																		</div>
+																	</div>
+																	<div class="section__list-item">
+																		<div class="left">
 																			<div class="name">Akount</div>
 																			<div class="addr">San Monica, CA</div>
 																			<div class="duration">Jan 2011 - Feb 2015</div>
