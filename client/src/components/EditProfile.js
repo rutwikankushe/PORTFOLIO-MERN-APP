@@ -8,6 +8,7 @@ import { POST_RESET, RESET_UPDATE, RESET_UPDATE_ERRORS } from '../store/types/Po
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Loader from './Loader';
+
 export const Edit = () => {
     const { id } = useParams();
     const { push } = useHistory();

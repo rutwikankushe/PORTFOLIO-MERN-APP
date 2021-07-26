@@ -31,11 +31,11 @@ export const EditImage = () => {
         }
     };
     const updateImage = (e) => {
-        const{image}=state;
+        // const{image}=state;
         e.preventDefault();
         const formData = new FormData();
         formData.append('id', id);
-        formData.append('image', image);
+        formData.append('image', state.image);
         dispatch(updateImageAction(formData));
        
         // console.log(formData.get("id"))

@@ -318,7 +318,7 @@ export const CreateProfile = (props) => {
                                         </div>
 
                                         <div className="form-group col-md-6">
-                                            <label for="inputEmail4"></label>
+                                            <label for="inputEmail4">Phone</label>
                                             <input type="text" name="phone" className="form-control" value={state.phone} onChange={handleInputs} id="phone" placeholder=""  />
                                         </div>
 
@@ -509,11 +509,11 @@ export const CreateProfile = (props) => {
 
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
-                                                <textarea type="text" name="first_project_desription" className="form-control" value={state.first_project_desription} onChange={handleInputs} id="first_project_desription" placeholder="Description" />
+                                                <input type="text" name="first_project_desription" className="form-control" value={state.first_project_desription} onChange={handleInputs} id="first_project_desription" placeholder="Description" />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label for="inputAge">key Technologies Used</label>
-                                                <input type="password" name="first_project_key_technologies" className="form-control" value={state.first_project_key_technologies} onChange={handleInputs} id="inputAge" placeholder="key Technologies" />
+                                                <input type="text" name="first_project_key_technologies" className="form-control" value={state.first_project_key_technologies} onChange={handleInputs} id="inputAge" placeholder="key Technologies" />
                                             </div>
 
                                         </div>
@@ -539,11 +539,11 @@ export const CreateProfile = (props) => {
 
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
-                                                <textarea type="text" name="second_project_desription" className="form-control" value={state.second_project_desription} onChange={handleInputs} id="second_project_desription" placeholder="Description" />
+                                                <input type="text" name="second_project_desription" className="form-control" value={state.second_project_desription} onChange={handleInputs} id="second_project_desription" placeholder="Description" />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label for="inputAge">key Technologies Used</label>
-                                                <input type="password" name="second_project_key_technologies" className="form-control" value={state.second_project_key_technologies} onChange={handleInputs} id="second_project_key_technologies" placeholder="key Technologies" />
+                                                <input type="text" name="second_project_key_technologies" className="form-control" value={state.second_project_key_technologies} onChange={handleInputs} id="second_project_key_technologies" placeholder="key Technologies" />
                                             </div>
 
                                         </div>
@@ -569,11 +569,11 @@ export const CreateProfile = (props) => {
 
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
-                                                <textarea type="text" name="third_project_desription" className="form-control" value={state.third_project_desription} onChange={handleInputs} id="third_project_desription" placeholder="Description" />
+                                                <input type="text" name="third_project_desription" className="form-control" value={state.third_project_desription} onChange={handleInputs} id="third_project_desription" placeholder="Description" />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label for="inputAge">key Technologies Used</label>
-                                                <input type="password" name="third_project_key_technologies" className="form-control" value={state.third_project_key_technologies} onChange={handleInputs} id="third_project_key_technologies" placeholder="key Technologies" />
+                                                <input type="text" name="third_project_key_technologies" className="form-control" value={state.third_project_key_technologies} onChange={handleInputs} id="third_project_key_technologies" placeholder="key Technologies" />
                                             </div>
 
                                         </div>
@@ -598,12 +598,12 @@ export const CreateProfile = (props) => {
                                             </div>
 
                                             <div className="form-group col-md-12">
-                                                <label for="inputEmail4">Description</label>
-                                                <textarea type="text" name="fourth_project_desription" className="form-control" value={state.fourth_project_desription} onChange={handleInputs} id="fourth_project_desription" placeholder="Description" />
+                                                <label for="inputDesc">Description</label>
+                                                <input type="text" name="fourth_project_desription" className="form-control" value={state.fourth_project_desription} onChange={handleInputs} id="fourth_project_desription" placeholder="Description" />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label for="inputAge">key Technologies Used</label>
-                                                <input type="password" name="fourth_project_key_technologies" className="form-control" value={state.fourth_project_key_technologies} onChange={handleInputs} id="fourth_project_key_technologies" placeholder="key Technologies" />
+                                                <input type="text" name="fourth_project_key_technologies" className="form-control" value={state.fourth_project_key_technologies} onChange={handleInputs} id="fourth_project_key_technologies" placeholder="key Technologies" />
                                             </div>
 
                                         </div>

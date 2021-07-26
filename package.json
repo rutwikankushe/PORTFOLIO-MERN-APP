@@ -28,11 +28,13 @@
     "jquery-animated-headlines": "^1.0.0",
     "jquery-waypoints": "^2.0.5",
     "jsonwebtoken": "^8.5.1",
+    "jspdf": "^2.3.1",
     "moment": "^2.29.1",
     "mongoose": "^5.13.2",
     "popper.js": "^1.16.1",
     "react-bootstrap": "^1.6.1",
     "react-hot-toast": "^2.0.0",
+    "react-to-pdf": "^0.0.14",
     "react-uuid": "^1.0.2",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.11"

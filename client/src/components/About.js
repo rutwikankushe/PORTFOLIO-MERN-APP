@@ -2,7 +2,7 @@ import React from 'react';
 import {Helmet} from "react-helmet";
 export const About = () => {
     return ( 
-        < >
+        <>
          <Helmet>
                 <title>About-PORTFOLIO MAKER'S</title>
                 <meta name='description' content="Portfolio Maker Free" ></meta>

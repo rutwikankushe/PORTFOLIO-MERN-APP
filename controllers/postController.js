@@ -666,7 +666,7 @@ module.exports.updateProfile = async (req, res) => {
     }
 
 };
-module.exports.updateImage =async (req, res) => {
+module.exports.updateImage =async (req, res) => {    
 	const form = formidable({ multiples: true });
 	form.parse(req, (errors, fields, files) => {
 		const { id } = fields;
@@ -688,9 +688,10 @@ module.exports.updateImage =async (req, res) => {
 		} else {
 			const newPath = __dirname + `/../client/public/images/${files.image.name}`;
 			fs.copyFile(files.image.path, newPath, async (error) => {
+               
 				if (!error) {
 					try {
-						const response = await user_profile.findByIdAndUpdate(id, {
+						const data = await user_profile.findByIdAndUpdate(id,{
 							image: files.image.name,
 						});
 						return res.status(200).json({ msg: 'Your image has been updated' });
