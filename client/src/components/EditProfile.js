@@ -261,7 +261,7 @@ export const Edit = () => {
                         <div className="profile-img">
                             <img src={`/images/${User_profile.image}`} alt={User_profile.image} />
                             <div className="file btn btn-lg btn-primary">
-                                <Link to={`/updateImage/${User_profile.userId}`}>Update image</Link>
+                                <Link to={`/updateImage/${User_profile._id}`}>Update image</Link>
                             </div>
                         </div>
                     </div>

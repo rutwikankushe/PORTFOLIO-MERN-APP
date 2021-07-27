@@ -691,7 +691,7 @@ module.exports.updateImage =async (req, res) => {
                
 				if (!error) {
 					try {
-						const data = await user_profile.findByIdAndUpdate(id,{
+						const response = await user_profile.findByIdAndUpdate(id,{
 							image: files.image.name,
 						});
 						return res.status(200).json({ msg: 'Your image has been updated' });
