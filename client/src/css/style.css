@@ -731,6 +731,12 @@ canvas {
   border-left: 2px solid #999;
   margin: 0px 10px;
 }
+.section__list-item .separator {
+  height: 10px;
+  display: inline-block;
+  border-left: 2px solid #999;
+  margin: 0px 10px;
+}
 .header .position {
   font-weight: bold;
   display: inline-block;
@@ -786,18 +792,4 @@ canvas {
 }
 .details .skills__item {
   margin-bottom: 10px;
-}
-.details .skills__item .right input {
-  display: none;
-}
-.details .skills__item .right label {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: #C3DEF3;
-  border-radius: 20px;
-  margin-right: 3px;
-}
-.details .skills__item .right input:checked + label {
-  background: #79A9CE;
 }

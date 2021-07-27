@@ -148,8 +148,8 @@ export const Dashboard = () => {
 										</div>
 
 										{/* style={{ position: "absolute", left: "-10000px" }} */}
-										<div >
-											<PDFExport paperSize="A4"  ref={pdfExportComponent}>
+										<div  style={{ position: "absolute", left: "-10000px" }}>
+											<PDFExport paperSize="A4"  ref={pdfExportComponent} >
 												<div id="body">
 													<div class="container-resume">
 														<div class="header">
@@ -189,130 +189,99 @@ export const Dashboard = () => {
 																	</div>
 																	<div class="section__list-item">
 																		<div class="left">
-																			<div class="name">{user_profile.school_name}</div>
-																			<div class="addr">{user_profile.subject_name}</div>
-																		
+																			<div class="name">{user_profile.college_name}</div>
+																			<div class="addr">{user_profile.college_course}<span class="separator"></span>Branch: {user_profile.college_branch} </div>
 																		</div>
 																		<div class="right">
-																			<div class="name">{user_profile.school_aggregate}%</div>
-																			<div class="desc">{user_profile.passing_year}</div>
+																			<div class="name">{user_profile.college_aggregate}%</div>
+																			<div class="desc">{user_profile.college_passing_year}</div>
 																		</div>
 																	</div>
 																	<div class="section__list-item">
 																		<div class="left">
-																			<div class="name">Akount</div>
-																			<div class="addr">San Monica, CA</div>
-																			<div class="duration">Jan 2011 - Feb 2015</div>
+																			<div class="name">{user_profile.Degree_college_name}</div>
+																			<div class="addr">{user_profile.Degree_college_course}<span class="separator"></span>Branch: {user_profile.Degree_college_branch} </div>
 																		</div>
 																		<div class="right">
-																			<div class="name">Fr developer</div>
-																			<div class="desc">did This and that</div>
+																			<div class="name">{user_profile.Degree_college_aggregate}%</div>
+																			<div class="desc">{user_profile.Degree_college_passing_year}</div>
 																		</div>
 																	</div>
+																	<div class="section__list-item">
+																		<div class="left">
+																			<div class="name">{user_profile.Instiute_name}</div>
+																			<div class="addr">{user_profile.Instiute_course}<span class="separator"></span>Branch: {user_profile.Instiute_branch} </div>
+																		</div>
+																		<div class="right">
+																			<div class="name">{user_profile.Instiute_aggregate}%</div>
+																			<div class="desc">{user_profile.Instiute_passing_year}</div>
+																		</div>
+																	</div>
+																	
 
 																</div>
-															</div>
-															<div class="section">
-																<div class="section__title">Education</div>
-																<div class="section__list">
-																	<div class="section__list-item">
-																		<div class="left">
-																			<div class="name">Sample Institute of technology</div>
-																			<div class="addr">San Fr, CA</div>
-																			<div class="duration">Jan 2011 - Feb 2015</div>
-																		</div>
-																		<div class="right">
-																			<div class="name">Fr developer</div>
-																			<div class="desc">did This and that</div>
-																		</div>
-																	</div>
-																	<div class="section__list-item">
-																		<div class="left">
-																			<div class="name">Akount</div>
-																			<div class="addr">San Monica, CA</div>
-																			<div class="duration">Jan 2011 - Feb 2015</div>
-																		</div>
-																		<div class="right">
-																			<div class="name">Fr developer</div>
-																			<div class="desc">did This and that</div>
-																		</div>
-																	</div>
-
-																</div>
-
 															</div>
 															<div class="section">
 																<div class="section__title">Projects</div>
 																<div class="section__list">
 																	<div class="section__list-item">
-																		<div class="name">DSP</div>
-																		<div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow.</div>
-																	</div>
+																		
+																			<div class="name">{user_profile.first_project_name}</div>
+																			<div class="duration">{moment(user_profile.first_project_start_date).format('Do MMM  YYYY')} - {moment(user_profile.first_project_end_date).format('Do MMM YYYY')}</div>
+																			<div class="addr">{user_profile.first_project_desription}</div>
+																			<div class="name">Technology used: {user_profile.first_project_key_technologies}</div>
 
+																	</div>
 																	<div class="section__list-item">
-																		<div class="name">DSP</div>
-																		<div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow. <a href="/login">link</a>
-																		</div>
+																		
+																			<div class="name">{user_profile.second_project_name}</div>
+																			<div class="duration">{moment(user_profile.second_project_start_date).format('Do MMM  YYYY')} - {moment(user_profile.second_project_end_date).format('Do MMM YYYY')}</div>
+																			<div class="addr">{user_profile.second_project_desription}</div>
+																			<div class="name">Technology used: {user_profile.second_project_key_technologies}</div>
+
 																	</div>
+																	<div class="section__list-item">
+																		
+																			<div class="name">{user_profile.first_project_name}</div>
+																			<div class="duration">{moment(user_profile.third_project_start_date).format('Do MMM  YYYY')} - {moment(user_profile.third_project_end_date).format('Do MMM YYYY')}</div>
+																			<div class="addr">{user_profile.third_project_desription}</div>
+																			<div class="name">Technology used: {user_profile.third_project_key_technologies}</div>
+
+																	</div>
+																	<div class="section__list-item">
+																		
+																			<div class="name">{user_profile.fourth_project_name}</div>
+																			<div class="duration">{moment(user_profile.fourth_project_start_date).format('Do MMM  YYYY')} - {moment(user_profile.fourth_project_end_date).format('Do MMM YYYY')}</div>
+																			<div class="addr">{user_profile.fourth_project_desription}</div>
+																			<div class="name">Technology used: {user_profile.fourth_project_key_technologies}</div>
+
+																	</div>
+																	
+
 																</div>
+
 															</div>
+															
 															<div class="section">
-																<div class="section__title">Skills</div>
-																<div class="skills">
-																	<div class="skills__item">
-																		<div class="left"><div class="name">
-																			Javascript
-																		</div></div>
-																		<div class="right">
-																			<input id="ck1" type="checkbox" checked />
-
-																			<label for="ck1"></label>
-																			<input id="ck2" type="checkbox" checked />
-
-																			<label for="ck2"></label>
-																			<input id="ck3" type="checkbox" />
-
-																			<label for="ck3"></label>
-																			<input id="ck4" type="checkbox" />
-																			<label for="ck4"></label>
-																			<input id="ck5" type="checkbox" />
-																			<label for="ck5"></label>
-
-																		</div>
+																<div class="section__title">Skills</div><div class="section__list-item">
+																		<div class="name">{user_profile.skill_1}<span class="separator"></span>{user_profile.skill_2}<span class="separator"></span>{user_profile.skill_3}<span class="separator"></span>{user_profile.skill_4}<span class="separator"></span>{user_profile.skill_5}
+																		<span class="separator"></span>{user_profile.skill_6}<span class="separator"></span>{user_profile.skill_7}<span class="separator"></span>{user_profile.skill_8}</div>
 																	</div>
-
-																</div>
-																<div class="skills__item">
-																	<div class="left"><div class="name">
-																		CSS</div></div>
-																	<div class="right">
-																		<input id="ck1" type="checkbox" checked />
-
-																		<label for="ck1"></label>
-																		<input id="ck2" type="checkbox" checked />
-
-																		<label for="ck2"></label>
-																		<input id="ck3" type="checkbox" />
-
-																		<label for="ck3"></label>
-																		<input id="ck4" type="checkbox" />
-																		<label for="ck4"></label>
-																		<input id="ck5" type="checkbox" />
-																		<label for="ck5"></label>
-
-																	</div>
-																</div>
-
 															</div>
 															<div class="section">
 																<div class="section__title">
-																	Interests
+																	Personal Vitae
 																</div>
-																<div class="section__list">
-																	<div class="section__list-item">
-																		Football, programming.
+																<div class="section__list-item">
+																	
+																			<div class="addr">Name: {user_profile.name}</div>
+																			<div class="addr">Age: {user_profile.age}</div>
+																			<div class="addr">Address: {user_profile.address},{user_profile.city}-{user_profile.zipcode},{user_profile.user_state}</div>
+																			<div class="addr">Hobbies: {user_profile.hobby}</div>
+																		
+																		
+																		
 																	</div>
-																</div>
 															</div>
 														</div>
 													</div>
