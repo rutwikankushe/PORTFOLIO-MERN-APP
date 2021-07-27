@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import {createAction} from '../store/asyncMethods/PostMethods';
-
 export const CreateProfile = (props) => {
     const { createErrors, redirect } = useSelector(
 		(state) => state.PostReducer
@@ -15,9 +14,6 @@ export const CreateProfile = (props) => {
     const {
         user: { _id, email },
 	} = useSelector((state) => state.AuthReducer);
-
-   
-    
     const fileHandle = (e) => {
         if(e.target.files.length !== 0)
         {
@@ -38,7 +34,6 @@ export const CreateProfile = (props) => {
 			...state,
 			[e.target.name]: e.target.value,
 		});
-		
 	};
     const [state, setState] = useState({
         image: '',
@@ -105,17 +100,7 @@ export const CreateProfile = (props) => {
         skill_7_percentage: '',
         skill_8: '',
         skill_8_percentage: '',
-
-
-
-
-
-
-
-
-
     });
-
     const createProfile = (e) => {
 		e.preventDefault();
         const {image,
@@ -251,7 +236,6 @@ export const CreateProfile = (props) => {
         formData.append('skill_8_percentage',skill_8_percentage);
         formData.append('id', _id);
 		dispatch(createAction(formData));
-		
 	};
     useEffect(() => {
 		if (redirect) {
@@ -263,7 +247,6 @@ export const CreateProfile = (props) => {
 	}, [createErrors, redirect]);
     return (
         < >
-        
             <Helmet>
                 <title>Create Your Profile-PORTFOLIO MAKER'S</title>
                 <meta name='description' content="Portfolio Maker Free" ></meta>
@@ -291,7 +274,6 @@ export const CreateProfile = (props) => {
                         </div>
                         <div className="col-md-8">
                             <div className="profile-head">
-
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                                     <li className="nav-item">
                                         <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
@@ -309,19 +291,15 @@ export const CreateProfile = (props) => {
                             </div>
                             <div className="tab-content profile-tab" id="myTabContent">
                                 <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
                                             <label for="inputEmail4">Name</label>
                                             <input type="text" name="name" className="form-control" value={state.name} onChange={handleInputs} id="name" placeholder="User Name"  />
                                         </div>
-
                                         <div className="form-group col-md-6">
                                             <label for="inputEmail4">Phone</label>
                                             <input type="text" name="phone" className="form-control" value={state.phone} onChange={handleInputs} id="phone" placeholder=""  />
                                         </div>
-
                                         <div className="form-group col-md-6">
                                             <label for="inputEmail4">Email</label>
                                             <input type="email" name="email" className="form-control" value={email} onChange={handleInputs} id="email"  placeholder="Email" readOnly />
@@ -335,7 +313,6 @@ export const CreateProfile = (props) => {
                                         <label for="inputAddress">Address</label>
                                         <input type="text" name="address" className="form-control" value={state.address} onChange={handleInputs} id="address" placeholder="1234 Main St" />
                                     </div>
-
                                     <div className="form-row">
                                         <div className="form-group col-md-4">
                                             <label for="inputCity">City</label>
@@ -359,27 +336,19 @@ export const CreateProfile = (props) => {
                                         <label for="inputAddress2">Hobby</label>
                                         <input type="text" name="hobby" className="form-control" value={state.hobby} onChange={handleInputs} id="hobby" placeholder="Hobby" />
                                     </div>
-
-
-
-
                                 </div>
                                 <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
                                     <div className="list_wrapper">
                                         <p>10th details</p>
-
                                         <div className="form-row">
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">School Name</label>
                                                 <input type="text" name="school_name" className="form-control" value={state.school_name} id="school_name" onChange={handleInputs}  placeholder="College Name"  />
                                             </div>
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Subjects</label>
                                                 <input type="text" name="subject_name" className="form-control" value={state.subject_name} id="subject_name" onChange={handleInputs}  placeholder="Course Name" />
                                             </div>
-
                                             <div className="form-group col-md-6">
                                                 <label for="inputEmail4">Year </label>
                                                 <input type="text" name="passing_year" className="form-control" value={state.passing_year}  id="passing_year" onChange={handleInputs}  placeholder="Year " />
@@ -389,19 +358,15 @@ export const CreateProfile = (props) => {
                                                 <input type="text" name="school_aggregate" className="form-control" value={state.school_aggregate} id="school_aggregate" onChange={handleInputs}  placeholder="Aggregate " />
                                             </div>
                                         </div>
-
-
                                     </div>
                                     <hr />
                                     <div className="list_wrapper">
                                         <p>12th details</p>
-
                                         <div className="form-row">
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">College Name</label>
                                                 <input type="text" name="college_name" className="form-control" value={state.college_name} id="college_name" onChange={handleInputs}  placeholder="College Name"  />
                                             </div>
-
                                             <div className="form-group col-md-6">
                                                 <label for="inputEmail4">Course Name</label>
                                                 <input type="text" name="college_course" className="form-control" value={state.college_course} id="college_course" onChange={handleInputs}  placeholder="Course Name" />
@@ -419,19 +384,15 @@ export const CreateProfile = (props) => {
                                                 <input type="text" name="college_aggregate" className="form-control" value={state.college_aggregate} id="college_aggregate" onChange={handleInputs}  placeholder="Aggregate " />
                                             </div>
                                         </div>
-
-
                                     </div>
                                     <hr />
                                     <div className="list_wrapper">
                                         <p>Degree details</p>
-
                                         <div className="form-row">
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">College Name</label>
                                                 <input type="text" name="Degree_college_name" className="form-control" value={state.Degree_college_name}  id="Degree_college_name" onChange={handleInputs} id="name" placeholder="College Name"  />
                                             </div>
-
                                             <div className="form-group col-md-6">
                                                 <label for="inputEmail4">Course Name</label>
                                                 <input type="text" name="Degree_college_course" className="form-control" value={state.Degree_college_course} id="Degree_college_course"onChange={handleInputs}  placeholder="Course Name" />
@@ -449,19 +410,15 @@ export const CreateProfile = (props) => {
                                                 <input type="text" name="Degree_college_aggregate" className="form-control" value={state.Degree_college_aggregate} id="Degree_college_aggregate" onChange={handleInputs}  placeholder="Aggregate " />
                                             </div>
                                         </div>
-
-
                                     </div>
                                     <hr />
                                     <div className="list_wrapper">
                                         <p>Higher Studies details(Optional)</p>
-
                                         <div className="form-row">
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Instiute Name</label>
                                                 <input type="text" name="Instiute_name" className="form-control" value={state.Instiute_name} id="Instiute_name" onChange={handleInputs}  placeholder="College Name"  />
                                             </div>
-
                                             <div className="form-group col-md-6">
                                                 <label for="inputEmail4">Course Name</label>
                                                 <input type="text" name="Instiute_course" className="form-control" value={state.Instiute_course} id="Instiute_course" onChange={handleInputs}  placeholder="Course Name" />
@@ -479,21 +436,13 @@ export const CreateProfile = (props) => {
                                                 <input type="text" name="Instiute_aggregate" className="form-control" value={state.Instiute_aggregate}  id="Instiute_aggregate" onChange={handleInputs}  placeholder="Aggregate " />
                                             </div>
                                         </div>
-
-
                                     </div>
                                     <br></br>
-
-
-
                                 </div>
-
                                 <div className="tab-pane fade" id="project" role="tabpanel" aria-labelledby="project-tab">
-
                                     <div className="list_wrapper1">
                                         <p>#1</p>
                                         <div className="form-row">
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputCollege">Project Title</label>
                                                 <input type="text" name="first_project_name" className="form-control" value={state.first_project_name} id="first_project_name" onChange={handleInputs} id="first_project_name" placeholder="Enter College Name" />
@@ -506,7 +455,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCollege">End Date</label>
                                                 <input type="date" name="first_project_end_date" className="form-control" value={state.first_project_end_date} onChange={handleInputs} id="first_project_end_date" placeholder="End Date" />
                                             </div>
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
                                                 <input type="text" name="first_project_desription" className="form-control" value={state.first_project_desription} onChange={handleInputs} id="first_project_desription" placeholder="Description" />
@@ -515,15 +463,12 @@ export const CreateProfile = (props) => {
                                                 <label for="inputAge">key Technologies Used</label>
                                                 <input type="text" name="first_project_key_technologies" className="form-control" value={state.first_project_key_technologies} onChange={handleInputs} id="inputAge" placeholder="key Technologies" />
                                             </div>
-
                                         </div>
-
                                     </div>
                                     <hr />
                                     <div className="list_wrapper1">
                                         <p>#2</p>
                                         <div className="form-row">
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputCollege">Project Title</label>
                                                 <input type="text" name="second_project_name" className="form-control" value={state.second_project_name} onChange={handleInputs} id="second_project_name" placeholder="Enter College Name" />
@@ -536,7 +481,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCollege">End Date</label>
                                                 <input type="date" name="second_project_end_date" className="form-control" value={state.second_project_end_date} onChange={handleInputs} id="second_project_end_date" placeholder="End Date" />
                                             </div>
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
                                                 <input type="text" name="second_project_desription" className="form-control" value={state.second_project_desription} onChange={handleInputs} id="second_project_desription" placeholder="Description" />
@@ -545,15 +489,12 @@ export const CreateProfile = (props) => {
                                                 <label for="inputAge">key Technologies Used</label>
                                                 <input type="text" name="second_project_key_technologies" className="form-control" value={state.second_project_key_technologies} onChange={handleInputs} id="second_project_key_technologies" placeholder="key Technologies" />
                                             </div>
-
                                         </div>
-
                                     </div>
                                     <hr />
                                     <div className="list_wrapper1">
                                         <p>#3</p>
                                         <div className="form-row">
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputCollege">Project Title</label>
                                                 <input type="text" name="third_project_name" className="form-control" value={state.third_project_name} onChange={handleInputs} id="third_project_name" placeholder="Enter College Name" />
@@ -566,7 +507,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCollege">End Date</label>
                                                 <input type="date" name="third_project_end_date" className="form-control" value={state.third_project_end_date} onChange={handleInputs} id="third_project_end_date" placeholder="End Date" />
                                             </div>
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputEmail4">Description</label>
                                                 <input type="text" name="third_project_desription" className="form-control" value={state.third_project_desription} onChange={handleInputs} id="third_project_desription" placeholder="Description" />
@@ -575,15 +515,12 @@ export const CreateProfile = (props) => {
                                                 <label for="inputAge">key Technologies Used</label>
                                                 <input type="text" name="third_project_key_technologies" className="form-control" value={state.third_project_key_technologies} onChange={handleInputs} id="third_project_key_technologies" placeholder="key Technologies" />
                                             </div>
-
                                         </div>
-
                                     </div>
                                     <hr />
                                     <div className="list_wrapper1">
                                         <p>#4</p>
                                         <div className="form-row">
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputCollege">Project Title</label>
                                                 <input type="text" name="fourth_project_name" className="form-control" value={state.fourth_project_name} onChange={handleInputs} id="fourth_project_name" placeholder="Enter College Name" />
@@ -596,7 +533,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCollege">End Date</label>
                                                 <input type="date" name="fourth_project_end_date" className="form-control" value={state.fourth_project_end_date} onChange={handleInputs} id="fourth_project_end_date" placeholder="End Date" />
                                             </div>
-
                                             <div className="form-group col-md-12">
                                                 <label for="inputDesc">Description</label>
                                                 <input type="text" name="fourth_project_desription" className="form-control" value={state.fourth_project_desription} onChange={handleInputs} id="fourth_project_desription" placeholder="Description" />
@@ -605,27 +541,17 @@ export const CreateProfile = (props) => {
                                                 <label for="inputAge">key Technologies Used</label>
                                                 <input type="text" name="fourth_project_key_technologies" className="form-control" value={state.fourth_project_key_technologies} onChange={handleInputs} id="fourth_project_key_technologies" placeholder="key Technologies" />
                                             </div>
-
                                         </div>
-
                                     </div>
                                     <br></br>
-
-
-
-
-
                                 </div>
-
                                 <div className="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
-
                                     <div className="list_wrapper2">
                                         <div className="form-row">
                                             <div className="form-group col-md-8">
                                                 <label for="inputCity">Skill 1</label>
                                                 <input type="text" name="skill_1" className="form-control" value={state.skill_1} onChange={handleInputs} id="skill_1" />
                                             </div>
-
                                             <div className="form-group col-md-4">
                                                 <label for="inputZip">Percentage</label>
                                                 <input type="text" name="skill_1_percentage" className="form-control" value={state.skill_1_percentage} onChange={handleInputs} id="skill_1_percentage" />
@@ -638,7 +564,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCity">Skill 2</label>
                                                 <input type="text" name="skill_2" className="form-control" value={state.skill_2} onChange={handleInputs} id="skill_2" />
                                             </div>
-
                                             <div className="form-group col-md-4">
                                                 <label for="inputZip">Percentage</label>
                                                 <input type="text" name="skill_2_percentage" className="form-control" value={state.skill_2_percentage} onChange={handleInputs} id="skill_2_percentage" />
@@ -651,7 +576,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCity">Skill 3</label>
                                                 <input type="text" name="skill_3" className="form-control" value={state.skill_3} onChange={handleInputs} id="skill_3" />
                                             </div>
-
                                             <div className="form-group col-md-4">
                                                 <label for="inputZip">Percentage</label>
                                                 <input type="text" name="skill_3_percentage" className="form-control" value={state.skill_3_percentage} onChange={handleInputs} id="skill_3_percentage" />
@@ -664,7 +588,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCity">Skill 4</label>
                                                 <input type="text" name="skill_4" className="form-control" value={state.skill_4} onChange={handleInputs} id="skill_4" />
                                             </div>
-
                                             <div className="form-group col-md-4">
                                                 <label for="inputZip">Percentage</label>
                                                 <input type="text" name="skill_4_percentage" className="form-control" value={state.skill_4_percentage} onChange={handleInputs} id="skill_4_percentage" />
@@ -677,7 +600,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCity">Skill 5</label>
                                                 <input type="text" name="skill_5" className="form-control" value={state.skill_5} onChange={handleInputs} id="skill_5" />
                                             </div>
-
                                             <div className="form-group col-md-4">
                                                 <label for="inputZip">Percentage</label>
                                                 <input type="text" name="skill_5_percentage" className="form-control" value={state.skill_5_percentage} onChange={handleInputs} id="skill_5_percentage" />
@@ -690,7 +612,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCity">Skill 6</label>
                                                 <input type="text" name="skill_6" className="form-control" value={state.skill_6} onChange={handleInputs} id="skill_6" />
                                             </div>
-
                                             <div className="form-group col-md-4">
                                                 <label for="inputZip">Percentage</label>
                                                 <input type="text" name="skill_6_percentage" className="form-control" value={state.skill_6_percentage} onChange={handleInputs} id="skill_6_percentage" />
@@ -703,7 +624,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCity">Skill 7</label>
                                                 <input type="text" name="skill_7" className="form-control" value={state.skill_7} onChange={handleInputs} id="skill_7" />
                                             </div>
-
                                             <div className="form-group col-md-4">
                                                 <label for="inputZip">Percentage</label>
                                                 <input type="text" name="skill_7_percentage" className="form-control" value={state.skill_7_percentage} onChange={handleInputs} id="skill_7_percentage" />
@@ -716,7 +636,6 @@ export const CreateProfile = (props) => {
                                                 <label for="inputCity">Skill 8</label>
                                                 <input type="text" name="skill_8" className="form-control" value={state.skill_8} onChange={handleInputs} id="skill_8" />
                                             </div>
-
                                             <div className="form-group col-md-4">
                                                 <label for="inputZip">Percentage</label>
                                                 <input type="text" name="skill_8_percentage" className="form-control" value={state.skill_8_percentage} onChange={handleInputs} id="skill_8_percentage" />
@@ -724,27 +643,11 @@ export const CreateProfile = (props) => {
                                         </div>
                                     </div>
                                     <br></br>
-
-
-
-
-
-
                                 </div>
-
-
-
-
                             </div>
-
                         </div>
-
-                        
                     </div>
-
-                   
                     <hr />
-
                     <div className="col text-center">
                         <button type="submit" id="submitButton" className="btn btn-reg  py-2 pull-center"><i className="fa fa-check-circle-o" aria-hidden="true"></i><span className="ml-2">Submit</span></button>
                     </div>
@@ -753,5 +656,4 @@ export const CreateProfile = (props) => {
         </>
     )
 }
-
 export default CreateProfile

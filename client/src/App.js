@@ -32,18 +32,10 @@ function App() {
 					<PrivateRoute path='/dashboard' exact component={Dashboard} />
 					<PrivateRoute path='/updateImage/:id' exact component={EditImage} />
 					<PrivateRoute path='/edit/:id' exact component={Edit} />
-
 					<PrivateRoute  component={NotFound} />
-					
-					
-					
 				</Switch>
 			</Router>
 			</Provider>
-		
 	);
-	
 }
-
-
 export default App;

@@ -37,10 +37,8 @@ export const EditImage = () => {
         formData.append('id', id);
         formData.append('image', state.image);
         dispatch(updateImageAction(formData));
-       
         // console.log(formData.get("id"))
         // console.log(formData.get('image'))
-        
     };
     useEffect(() => {
 		if (updateImageErrors.length !== 0) {
@@ -53,8 +51,6 @@ export const EditImage = () => {
 			push('/dashboard');
 		}
 	}, [redirect]);
-
-
     return (
         < >
             <Helmet>
@@ -63,10 +59,8 @@ export const EditImage = () => {
             </Helmet>
             <Toaster
                 position='top-right'
-               
                 reverseOrder={false}
                 toastOptions={
-                    
                     {
                     "closeButton": true,
                     style: {
@@ -75,7 +69,6 @@ export const EditImage = () => {
                 }}
             />
             <div class="banner-area" id="home">
-
                 <div class="banner-table">
                     <div class="banner-table-cell">
                         <div class="welcome-text">
@@ -85,28 +78,18 @@ export const EditImage = () => {
                                         <section class="intro animate-scale section-padding-title">
                                             <form id="myform" onSubmit={updateImage}>
                                                 <div class="img-area">
-
                                                     <label htmlFor='image'>
-
                                                         {state.imagePreview ? <img src={state.imagePreview} /> : <img src="https://i.ibb.co/WGd34Vs/depositphotos-134255626-stock-illustration-avatar-male-profile-gray-person.jpg" alt="" />}
                                                     </label>
-
                                                     <input type='file' name='image' id='image' onChange={fileHandle} />
-                                                  
-                                                   
-
                                                 </div>
                                                 <span style={{ display: "none" }} >{state.imageName}</span>
                                                 <div className="col text-center">
                                                         <button type="submit" form="myform" value="Submit"  className="btn btn-reg  py-2 pull-center"><i className="fa fa-check-circle-o" aria-hidden="true"></i><span className="ml-2">Submit</span></button>
                                                     </div>
                                             </form>
-
                                         </section>
-
                                         <div class="clearfix"></div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -114,10 +97,7 @@ export const EditImage = () => {
                     </div>
                 </div>
             </div>
-
-
         </>
     )
 }
-
 export default EditImage
