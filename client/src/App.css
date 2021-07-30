@@ -361,3 +361,7 @@ hr {
     font-size: 26px;
   }
 }
+
+.dropdown-menu{
+  min-width: none;
+}

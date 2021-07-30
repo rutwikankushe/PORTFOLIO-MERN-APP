@@ -24,29 +24,32 @@ const Navbar = () => {
             <li className="nav-item px-3">
                 <Link className="nav-link " to="/contact">Contact</Link>
             </li>
+            <li className="nav-item px-3">
+                <Link className="nav-link " to="/dashboard">Portfolio</Link>
+            </li>
             {/* <li className="nav-item px-3">
                 <Link className="nav-link " to="/profile"> Profile</Link>
             </li> */}
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown px-3">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Profile
+                <i class="fa fa-user" style={{marginRight:"10px"}} aria-hidden="true"></i>Profile
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
                     {/* {(user_profiles.length > 0 ? (<Link class="dropdown-item" to="/createprofile" >Create Profile</Link>) : <Link class="dropdown-item"  >Edit Profile</Link>
                     )} */}
                     {user_profiles.length > 0 ?
                     user_profiles.map(user_profile =>
-                     (<Link class="dropdown-item"  to={`/edit/${user_profile.userId}`}>Edit Profile</Link> )
+                     (<Link class="dropdown-item"  to={`/edit/${user_profile.userId}`}><i style={{marginRight:"10px"}} class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</Link> )
                     ) 
                     :  
-                    <Link class="dropdown-item"  to="/createprofile" >Create Profile</Link> 
+                    <Link class="dropdown-item"  to="/createprofile" ><i style={{marginRight:"10px"}} class="fa fa-user-plus" aria-hidden="true"></i>Create Profile</Link> 
                     }
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Settings</a>
+                    {/* <div class="dropdown-divider"></div> */}
+                   
                 </div>
             </li>
             <li className="nav-item px-3">
-                <a className="nav-link "><span onClick={logout}>Logout</span></a>
+                <a className="nav-link"><span onClick={logout}><i class="fa fa-power-off" aria-hidden="true"></i></span></a>
             </li>
         </>
     ) : (

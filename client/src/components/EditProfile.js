@@ -5,13 +5,37 @@ import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserDetails, updateAction } from '../store/asyncMethods/PostMethods';
 import { POST_RESET, RESET_UPDATE, RESET_UPDATE_ERRORS } from '../store/types/PostTypes';
+import {
+	REDIRECT_FALSE,
+	REMOVE_MESSAGE,
+	SET_LOADER,
+	CLOSE_LOADER,
+	SET_MESSAGE,
+} from '../store/types/PostTypes'; //imp for edit profile
+import { fetchProfile } from "../store/asyncMethods/PostMethods"; //imp for edit profile
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Loader from './Loader';
 export const Edit = () => {
     const { id } = useParams();
+    const {
+		user: { _id, email }
+	} = useSelector((state) => state.AuthReducer); //imp for edit profile
     const { push } = useHistory();
     const [value, setValue] = useState('');
+    const { redirect, message, loading } = useSelector(
+		(state) => state.PostReducer
+	);//imp for edit profile
+    useEffect(() => {
+		if (redirect) {
+			dispatch({ type: REDIRECT_FALSE });
+		}
+		if (message) {
+			toast.success(message);
+			dispatch({ type: REMOVE_MESSAGE });
+		}
+		dispatch(fetchProfile(_id));
+	}, [message]);//imp for edit profile
     const [state, setState] = useState({
         image: '',
         name: '',
@@ -79,7 +103,7 @@ export const Edit = () => {
         skill_8_percentage: '',
     });
     const dispatch = useDispatch();
-    const { loading, redirect } = useSelector(state => state.PostReducer);
+   
     const { User_profile, userProfileStatus } = useSelector(state => state.fetchUserDetails);
     const { editErrors } = useSelector(state => state.UpdateProfile);
     useEffect(() => {
