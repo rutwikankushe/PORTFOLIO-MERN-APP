@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserDetails, updateAction } from '../store/asyncMethods/PostMethods';
 import { POST_RESET, RESET_UPDATE, RESET_UPDATE_ERRORS } from '../store/types/PostTypes';
 import {
-	REDIRECT_FALSE,
-	REMOVE_MESSAGE,
-	SET_LOADER,
-	CLOSE_LOADER,
-	SET_MESSAGE,
+    REDIRECT_FALSE,
+    REMOVE_MESSAGE,
+    SET_LOADER,
+    CLOSE_LOADER,
+    SET_MESSAGE,
 } from '../store/types/PostTypes'; //imp for edit profile
 import { fetchProfile } from "../store/asyncMethods/PostMethods"; //imp for edit profile
 import toast, { Toaster } from 'react-hot-toast';
@@ -19,23 +19,23 @@ import Loader from './Loader';
 export const Edit = () => {
     const { id } = useParams();
     const {
-		user: { _id, email }
-	} = useSelector((state) => state.AuthReducer); //imp for edit profile
+        user: { _id, email }
+    } = useSelector((state) => state.AuthReducer); //imp for edit profile
     const { push } = useHistory();
     const [value, setValue] = useState('');
     const { redirect, message, loading } = useSelector(
-		(state) => state.PostReducer
-	);//imp for edit profile
+        (state) => state.PostReducer
+    );//imp for edit profile
     useEffect(() => {
-		if (redirect) {
-			dispatch({ type: REDIRECT_FALSE });
-		}
-		if (message) {
-			toast.success(message);
-			dispatch({ type: REMOVE_MESSAGE });
-		}
-		dispatch(fetchProfile(_id));
-	}, [message]);//imp for edit profile
+        if (redirect) {
+            dispatch({ type: REDIRECT_FALSE });
+        }
+        if (message) {
+            toast.success(message);
+            dispatch({ type: REMOVE_MESSAGE });
+        }
+        dispatch(fetchProfile(_id));
+    }, [message]);//imp for edit profile
     const [state, setState] = useState({
         image: '',
         name: '',
@@ -103,7 +103,7 @@ export const Edit = () => {
         skill_8_percentage: '',
     });
     const dispatch = useDispatch();
-   
+
     const { User_profile, userProfileStatus } = useSelector(state => state.fetchUserDetails);
     const { editErrors } = useSelector(state => state.UpdateProfile);
     useEffect(() => {
@@ -250,7 +250,7 @@ export const Edit = () => {
             skill_7_percentage: state.skill_7_percentage,
             skill_8: state.skill_8,
             skill_8_percentage: state.skill_8_percentage,
-            id:User_profile._id,
+            id: User_profile._id,
         }))
     };
     useEffect(() => {
@@ -278,7 +278,9 @@ export const Edit = () => {
                 }
             }}
         />
+        
         <div className="container emp-profile">
+
             <form onSubmit={updateProfile}>
                 <div className="row">
                     <div className="col-md-4">
@@ -666,6 +668,6 @@ export const Edit = () => {
                 </div>
             </form>
         </div>
-    </> : <Loader/>;
+    </> : <Loader />;
 };
 export default Edit

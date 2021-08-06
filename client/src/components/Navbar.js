@@ -16,7 +16,7 @@ const Navbar = () => {
     }
     const about_url = '/#about';
     const services_url = '/#services';
-    const contact_url = '/#services';
+    const contact_url = '/#contact';
     const Links = user ? (
         <>
             <li className="nav-item px-3">
@@ -65,13 +65,13 @@ const Navbar = () => {
                 <Link className="nav-link "  to="/">Home</Link>
             </li>
             <li className="nav-item px-3">
-                <a className="nav-link "   href="http://localhost:3000/#about">About</a>
+                <a className="nav-link "    href={about_url} >About</a>
             </li>
             <li className="nav-item px-3">
-                <a className="nav-link "   href="http://localhost:3000/#services">Services</a>
+                <a className="nav-link "   href={services_url}>Services</a>
             </li>
             <li className="nav-item px-3 ">
-                <a className="nav-link "  href="http://localhost:3000/#contact"  >Contact</a>
+                <a className="nav-link "  href={contact_url}  >Contact</a>
             </li>
             <li className="nav-item px-3">
                 <Link className="nav-link " to="/login">Login</Link>

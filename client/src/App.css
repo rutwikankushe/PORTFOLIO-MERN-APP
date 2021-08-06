@@ -84,6 +84,15 @@ a.nav-link {
 .logo span {
   color: #00b0dc;
 }
+
+.logo1 {
+  padding: 5px;
+  letter-spacing: 3px;
+}
+
+.logo1 span {
+  color: #00b0dc;
+}
 .btn:focus {
   box-shadow: none;
 }
@@ -109,7 +118,6 @@ select.form-control {
 select #countryCode{
   max-width: 10px;
 }
-
 
 
 .container-fluid{
