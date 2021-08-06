@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { LOGOUT } from '../store/types/UserTypes';
+
 const Navbar = () => {
     const { user } = useSelector((state) => state.AuthReducer);
     const { user_profiles } = useSelector((state) => state.FetchUserProfile);
@@ -13,19 +14,25 @@ const Navbar = () => {
     const divStyle ={
         style: "dispaly:none",
     }
+    const about_url = '/#about';
+    const services_url = '/#services';
+    const contact_url = '/#services';
     const Links = user ? (
         <>
-            <li className="nav-item px-3 active">
-                <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
+            <li className="nav-item px-3">
+                <Link className="nav-link "  to="/">Home</Link>
             </li>
             <li className="nav-item px-3">
-                <Link className="nav-link" to="/about">About</Link>
+                <a className="nav-link "   href={about_url}>About</a>
             </li>
             <li className="nav-item px-3">
-                <Link className="nav-link " to="/contact">Contact</Link>
+                <a className="nav-link "   href={services_url}>Services</a>
+            </li>
+            <li className="nav-item px-3 ">
+                <a className="nav-link "  href={contact_url}  >Contact</a>
             </li>
             <li className="nav-item px-3">
-                <Link className="nav-link " to="/dashboard">Portfolio</Link>
+                <Link className="nav-link "   to="/dashboard">Portfolio</Link>
             </li>
             {/* <li className="nav-item px-3">
                 <Link className="nav-link " to="/profile"> Profile</Link>
@@ -54,14 +61,17 @@ const Navbar = () => {
         </>
     ) : (
         <>
-            <li className="nav-item px-3 active">
-                <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
+             <li className="nav-item px-3">
+                <Link className="nav-link "  to="/">Home</Link>
             </li>
             <li className="nav-item px-3">
-                <Link className="nav-link" to="/about">About</Link>
+                <a className="nav-link "   href="http://localhost:3000/#about">About</a>
             </li>
             <li className="nav-item px-3">
-                <Link className="nav-link " to="/contact">Contact</Link>
+                <a className="nav-link "   href="http://localhost:3000/#services">Services</a>
+            </li>
+            <li className="nav-item px-3 ">
+                <a className="nav-link "  href="http://localhost:3000/#contact"  >Contact</a>
             </li>
             <li className="nav-item px-3">
                 <Link className="nav-link " to="/login">Login</Link>

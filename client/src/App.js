@@ -22,7 +22,7 @@ function App() {
 			<Router>
 			<Navbar/>
 				<Switch>
-					<PrivateRoute path='/' exact component={Home} />
+					<Route path='/' exact component={Home} />
 					<Route path='/about' exact component={About} />
 					<Route  path='/contact' exact component={Contact} />
 					<Route  path='/loader' exact component={Loader} />

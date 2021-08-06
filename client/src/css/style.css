@@ -125,12 +125,15 @@ img {
 /*----------- 5. Banner area css starts--------------*/
 
 .banner-area {
+  position:fixed;
   background-image: url(../images/home/bg1.jpg);
+
   /*--edit image--*/
   background-position: center;
   background-size: cover;
   position: relative;
   height: 100%;
+ 
 }
 
 .banner-area::before {

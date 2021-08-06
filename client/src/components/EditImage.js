@@ -5,17 +5,28 @@ import { useSelector, useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import { updateImageAction } from '../store/asyncMethods/PostMethods';
 import { RESET_UPDATE_IMAGE_ERRORS } from '../store/types/PostTypes';
+import {
+    REDIRECT_FALSE,
+    REMOVE_MESSAGE,
+    SET_LOADER,
+    CLOSE_LOADER,
+    SET_MESSAGE,
+} from '../store/types/PostTypes'; //imp for edit profile
+import { fetchProfile } from "../store/asyncMethods/PostMethods";
 export const EditImage = () => {
     const { id } = useParams();
     const { push } = useHistory();
     const dispatch = useDispatch();
-	const { updateImageErrors } = useSelector((state) => state.UpdateImage);
-    const { redirect } = useSelector((state) => state.PostReducer);
+    const { updateImageErrors } = useSelector((state) => state.UpdateImage);
+
     const [state, setState] = useState({
         image: '',
         imagePreview: '',
         imageName: '',
     });
+    const {
+        user: { _id, email }
+    } = useSelector((state) => state.AuthReducer);
     const fileHandle = (e) => {
         if (e.target.files.length !== 0) {
             const reader = new FileReader();
@@ -40,17 +51,30 @@ export const EditImage = () => {
         // console.log(formData.get("id"))
         // console.log(formData.get('image'))
     };
+    const { redirect, message, loading } = useSelector(
+        (state) => state.PostReducer
+    );//imp for edit profile
     useEffect(() => {
-		if (updateImageErrors.length !== 0) {
-			updateImageErrors.map((error) => toast.error(error.msg));
-			dispatch({ type: RESET_UPDATE_IMAGE_ERRORS });
-		}
-	}, [updateImageErrors]);
+        if (redirect) {
+            dispatch({ type: REDIRECT_FALSE });
+        }
+        if (message) {
+            toast.success(message);
+            dispatch({ type: REMOVE_MESSAGE });
+        }
+        dispatch(fetchProfile(_id));
+    }, [message]);//imp for edit profile
     useEffect(() => {
-		if (redirect) {
-			push('/dashboard');
-		}
-	}, [redirect]);
+        if (updateImageErrors.length !== 0) {
+            updateImageErrors.map((error) => toast.error(error.msg));
+            dispatch({ type: RESET_UPDATE_IMAGE_ERRORS });
+        }
+    }, [updateImageErrors]);
+    useEffect(() => {
+        if (redirect) {
+            push('/dashboard');
+        }
+    }, [redirect]);
     return (
         < >
             <Helmet>
@@ -62,13 +86,13 @@ export const EditImage = () => {
                 reverseOrder={false}
                 toastOptions={
                     {
-                    "closeButton": true,
-                    style: {
-                        fontSize: '14px',
-                    },
-                }}
+                        "closeButton": true,
+                        style: {
+                            fontSize: '14px',
+                        },
+                    }}
             />
-            <div class="banner-area" id="home">
+            <div class="banner-area" >
                 <div class="banner-table">
                     <div class="banner-table-cell">
                         <div class="welcome-text">
@@ -85,8 +109,8 @@ export const EditImage = () => {
                                                 </div>
                                                 <span style={{ display: "none" }} >{state.imageName}</span>
                                                 <div className="col text-center">
-                                                        <button type="submit" form="myform" value="Submit"  className="btn btn-reg  py-2 pull-center"><i className="fa fa-check-circle-o" aria-hidden="true"></i><span className="ml-2">Submit</span></button>
-                                                    </div>
+                                                    <button type="submit" form="myform" value="Submit" className="btn btn-reg  py-2 pull-center"><i className="fa fa-check-circle-o" aria-hidden="true"></i><span className="ml-2">Submit</span></button>
+                                                </div>
                                             </form>
                                         </section>
                                         <div class="clearfix"></div>
@@ -97,6 +121,7 @@ export const EditImage = () => {
                     </div>
                 </div>
             </div>
+           
         </>
     )
 }
